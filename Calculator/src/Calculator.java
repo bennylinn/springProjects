@@ -1,8 +1,6 @@
 
 public interface Calculator {
-	void setOperandOne(double operand);
-	void setOperation(String operation);
-	void setOperandTwo(double operand);
-	void performOperations();
+	void performOperations(double num);
+	void performOperations(String operation);
 	double getResults();
 }
