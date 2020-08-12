@@ -16,12 +16,8 @@ public class Pokedex extends AbstractPokemon{
 		myPokemons = mp;
 	}
 	
-	@Override
-	public Pokemon createPokemon(String name, int health, String type) {
-		// TODO Auto-generated method stub
-		Pokemon p = new Pokemon(name, health, type);
-		this.myPokemons.add(p);
-		return p;
+	public void addPokemon(String name, int health, String type) {
+		super.createPokemon(name, health, type);
 	}
 
 	@Override

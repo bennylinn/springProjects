@@ -6,13 +6,13 @@ public class PokemonTest {
 		Pokedex pd1 = new Pokedex();
 		Pokedex pd2 = new Pokedex();
 		
-		pd1.createPokemon("Gengar", 100, "Dark");
-		pd1.createPokemon("Ghastly", 50, "Dark");
-		pd1.createPokemon("Weedle", 20, "Grass");
-		pd1.createPokemon("Weedle", 20, "Grass");
+		pd1.addPokemon("Gengar", 100, "Dark");
+		pd1.addPokemon("Ghastly", 50, "Dark");
+		pd1.addPokemon("Weedle", 20, "Grass");
+		pd1.addPokemon("Weedle", 20, "Grass");
 		
-		pd2.createPokemon("Gengar", 100, "Dark");
-		pd2.createPokemon("Ghastly", 50, "Dark");
+		pd2.addPokemon("Gengar", 100, "Dark");
+		pd2.addPokemon("Ghastly", 50, "Dark");
 		
 		pd1.listPokemon();
 		pd2.listPokemon();

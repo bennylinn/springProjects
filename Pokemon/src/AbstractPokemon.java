@@ -8,5 +8,13 @@ public abstract class AbstractPokemon implements PokemonInterface {
 		
 		return s;
 	}
-
+	
+	@Override
+	public Pokemon createPokemon(String name, int health, String type) {
+		// TODO Auto-generated method stub
+		Pokemon p = new Pokemon(name, health, type);
+		return p;
+	}
+	
+	
 }

@@ -15,6 +15,11 @@ public class TI84Plus implements Calculator {
 			this.setNextOperand(num);
 		}
 	}
+	// keep track of all numbers + operands in order
+	// shrink operations by numbers and operands
+	
+	// **can use arraylist as queue
+	// 
 	
 	
 	@Override
