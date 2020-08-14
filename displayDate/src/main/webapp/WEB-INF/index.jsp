@@ -12,7 +12,7 @@
 <form method="POST" action="/code">
     <label>Try Code: <input type="text" name="code"></label>
     <button>Login</button>
-    <p><c:out value="${error}"></c:out></p>>
+    <p><c:out value="${error}"></c:out></p>
 </form>
 </body>
 </html>
