@@ -27,7 +27,6 @@ INDEX VERSION 1.131+/Users/bennylin/Documents/sts/.metadata/.plugins/org.eclipse
 457039138.index
 1970919810.index
 497056947.index
-1765289278.index
 3693140811.index
 1511586557.index
 294472217.index

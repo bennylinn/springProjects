@@ -10,7 +10,7 @@
 </head>
 <body>
 <div style="display: inline-block">
-	<h1 class="date">Date: <c:out value="${weekday}"></c:out>, the <c:out value="${day}"></c:out> of <c:out value="${month}"></c:out>, <c:out value="${year}"></c:out></h1>
+	
 </div>
 </body>
 </html>

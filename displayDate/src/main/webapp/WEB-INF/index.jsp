@@ -9,11 +9,10 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<div style="display: inline-block">
-	<a href="date">Date Template</a>
-</div>
-<div style="display: inline-block">
-	<a href="time">Time Template</a>
-</div>
+<form method="POST" action="/code">
+    <label>Try Code: <input type="text" name="code"></label>
+    <button>Login</button>
+    <p><c:out value="${error}"></c:out></p>>
+</form>
 </body>
 </html>
