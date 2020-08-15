@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
+<%@ page isErrorPage="true" %>    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>New Book</h1>
-<form:form action="/books" method="post" modelAttribute="book">
+
+<h1>Edit Book</h1>
+<form:form action="/books/${book.id}" method="post" modelAttribute="book"> <!-- difference between put and post?? -->
+    <input type="hidden" name="_method" value="put">
     <p>
         <form:label path="title">Title</form:label>
         <form:errors path="title"/>
@@ -32,5 +35,6 @@
     </p>    
     <input type="submit" value="Submit"/>
 </form:form>
+
 </body>
 </html>
