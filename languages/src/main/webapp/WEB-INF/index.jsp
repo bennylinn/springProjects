@@ -56,7 +56,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 				</form> 
 				<a href="languages/edit/${language.id}">edit</a></td>
         </tr>
-        </c:forEach>
+        </c:forEach> 
     </tbody>
 </table>
 <div class="form-body">
