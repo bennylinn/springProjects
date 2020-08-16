@@ -1,14 +1,13 @@
-<%@page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%@ page isErrorPage="true" %>  --%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <style>
 table {
-  width: 80%;
+  width: 100%;
 }
 th {
   height: 40px;
@@ -21,7 +20,14 @@ table, th, td {
   padding: 15px;
   text-align: left;
 }
+th {
+	background-color: grey;
+}
 tr:nth-child(even) {background-color: #f2f2f2;}
+.form-body {
+	width: 80%;
+	margin: auto;
+}
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -40,22 +46,38 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     <tbody>
         <c:forEach items="${languages}" var="language">
         <tr>
-            <td><a href="/languages"><c:out value="${language.name}"/></a></td>
+            <td><a href="/languages/${language.id}"><c:out value="${language.name}"/></a></td>
             <td><c:out value="${language.creator}"/></td>
             <td><c:out value="${language.version}"/></td>
-            <td><a>delete</a> <a>edit</a></td>
+            <td>
+            	<form action="/languages/${language.id}" method="post">
+    				<input type="hidden" name="_method" value="delete">
+    				<input type="submit" value="Delete">
+				</form> 
+				<a href="languages/edit/${language.id}">edit</a></td>
         </tr>
         </c:forEach>
     </tbody>
 </table>
-<div>
-<form:form action="/languages" method="post" modelAttribute="language">
-	<p>
-		<form:label path="name">Name</form:label>
-		<form:errors path="name"/>
-		<form:input path="name"/>
-	</p>
-</form:form>
+<div class="form-body">
+	<form:form action="/languages" method="post" modelAttribute="language">  
+		<p>
+	        <form:label path="name">Name: </form:label>
+			<form:input path="name"/>
+	    </p>
+	    <p style="color: red; font-size: 12px;"><form:errors path="name"/></p>
+	    <p>
+	        <form:label path="creator">Creator: </form:label>
+			<form:input path="creator"/>
+	    </p>
+	    <p style="color: red; font-size: 12px;"><form:errors path="creator"/></p>
+	    <p>
+	        <form:label path="version">Version: </form:label>
+			<form:input path="version"/>
+	    </p>
+	    <p style="color: red; font-size: 12px;"><form:errors path="version"/></p>
+	    <input type="submit" value="Submit"/>
+	</form:form>
 </div>
 </body>
 </html>

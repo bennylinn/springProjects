@@ -26,7 +26,7 @@ public class Language {
     private String name;
     @Size(min = 2, max = 20)
     private String creator;
-    @Size(min = 0)
+    @Size(min = 1)
     private String version;
     
     // This will not allow the createdAt column to be updated after creation
@@ -37,6 +37,9 @@ public class Language {
     private Date updatedAt;
     
     public Language() {
+    	this.name = "Default";
+    	this.creator = "Default";
+    	this.version = "0.0.1";
     }
     // Constructor
     public Language(String name, String creator, String version) {
@@ -94,7 +97,6 @@ public class Language {
 		this.updatedAt = updatedAt;
 	}
 	
-	// Dunno what this does
 	@PrePersist
 	protected void onCreate(){
 		this.createdAt = new Date();

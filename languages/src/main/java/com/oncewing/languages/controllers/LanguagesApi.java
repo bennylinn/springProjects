@@ -13,37 +13,37 @@ import com.oncewing.languages.services.LanguageServices;
 
 @RestController
 public class LanguagesApi {
-	private final LanguageServices LanguageServices;
+	private final LanguageServices languageServices;
 	
 	public LanguagesApi(LanguageServices languageService) {
-		this.LanguageServices = languageService;
+		this.languageServices = languageService;
 	}
 	
 	@RequestMapping("/api/languages")
     public List<Language> index() {
-        return LanguageServices.allLanguages();
+        return languageServices.allLanguages();
     }
     
     @RequestMapping(value="/api/languages", method=RequestMethod.POST)
     public Language create(@RequestParam(value="name") String name, @RequestParam(value="creator") String creator, @RequestParam(value="version") String version) {
         Language Language = new Language(name, creator, version);
-        return LanguageServices.createLanguage(Language);
+        return languageServices.createLanguage(Language);
     }
     
     @RequestMapping("/api/languages/{id}")
     public Language show(@PathVariable("id") Long id) {
-        Language Language = LanguageServices.findLanguage(id);
+        Language Language = languageServices.findLanguage(id);
         return Language;
     }
     
     @RequestMapping(value="/api/languages/{id}", method=RequestMethod.PUT)
     public Language update(@PathVariable("id") Long id, @RequestParam(value="name") String name, @RequestParam(value="creator") String creator, @RequestParam(value="version") String version) {
-        Language Language = LanguageServices.updateLanguage(id, name, creator, version);
+        Language Language = languageServices.updateLanguage(id, name, creator, version);
         return Language;
     }
     
     @RequestMapping(value="/api/languages/{id}", method=RequestMethod.DELETE)
     public void destroy(@PathVariable("id") Long id) {
-        LanguageServices.deleteLanguage(id);
+        languageServices.deleteLanguage(id);
     }
 }

@@ -23,8 +23,8 @@ public class LanguagesController {
         this.languageServices = LanguageService;
     }
     
-    @RequestMapping("/languages")
-    public String index(Model model) {
+    @RequestMapping(value="/languages", method=RequestMethod.GET)
+    public String index(Model model, @Valid @ModelAttribute("language") Language language, BindingResult result) {
         List<Language> Languages = languageServices.allLanguages();
         model.addAttribute("languages", Languages);
         return "index.jsp";
@@ -37,7 +37,7 @@ public class LanguagesController {
     @RequestMapping(value="/languages", method=RequestMethod.POST)
     public String create(@Valid @ModelAttribute("language") Language language, BindingResult result) {
         if (result.hasErrors()) {
-            return "redirect:/languages";
+            return "index.jsp";
         } else {
             languageServices.createLanguage(language);
             return "redirect:/languages";
@@ -48,29 +48,29 @@ public class LanguagesController {
     public String show(@PathVariable("id") Long id, Model model) {
     	Language Language = languageServices.findLanguage(id);
     	model.addAttribute("language", Language);
-    	return "/show.jsp";
+    	return "show.jsp";
     }
     
-    @RequestMapping(value="/languages/{id}/edit")
-    public String edit(@PathVariable("id") Long id, Model model) {
+    @RequestMapping(value="/languages/edit/{id}")
+    public String edit(@PathVariable("id") Long id, Model model, @Valid @ModelAttribute("language") Language language, BindingResult result) {
     	Language Language = languageServices.findLanguage(id);
     	model.addAttribute("language", Language);
-    	return "/edit.jsp";
+    	return "edit.jsp";
     }
     
     @RequestMapping(value="/languages/{id}", method=RequestMethod.PUT)
     public String update(@Valid @ModelAttribute("language") Language language, BindingResult result) {
     	if (result.hasErrors()) {
-    		return "/edit.jsp";
+    		return "index.jsp";
     	} else {
     		languageServices.updateLanguage(language.getId(), language.getName(), language.getCreator(), language.getVersion());
     		return "redirect:/languages";
     	}
     }
     
-    @RequestMapping(value="/Languages/{id}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/languages/{id}", method=RequestMethod.DELETE)
     public String destroy(@PathVariable("id") Long id) {
         languageServices.deleteLanguage(id);
-        return "redirect:/Languages";
+        return "redirect:/languages";
     }
 }

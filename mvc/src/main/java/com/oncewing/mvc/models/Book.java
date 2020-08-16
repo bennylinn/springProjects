@@ -34,6 +34,8 @@ public class Book {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
     
+    public Book() {
+    }
     public Book(String title, String desc, String lang, int pages) {
         this.title = title;
         this.description = desc;
