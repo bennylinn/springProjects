@@ -77,23 +77,24 @@ public class MainController {
         	System.out.println(result);
             return "index.jsp";
         } else {
-            Long a_id = task.getA_id();
-            Long c_id = task.getC_id();
-            
-            Person assignee = personServices.findPerson(a_id);
-            Person creator = personServices.findPerson(c_id);
-            
-            System.out.println(assignee.getName());
-            System.out.println(creator.getName());
-            
-            Task t = new Task(task.getName(), task.getPriority(), creator, assignee);
-            taskServices.createTask(t);
+//            Long a_id = task.getA_id();
+//            Long c_id = task.getC_id();
+//            
+//            Person assignee = personServices.findPerson(a_id);
+//            Person creator = personServices.findPerson(c_id); // ??? can i retrieve selected object instead
+//            
+//            System.out.println(assignee.getName());
+//            System.out.println(creator.getName());
+//            
+//            Task t = new Task(task.getName(), task.getPriority(), creator, assignee);
+            taskServices.createTask(task);
             return "redirect:/tasks";
         }
     }
      
     @RequestMapping(value="/tasks/{id}")
     public String display(@PathVariable("id") Long id, Model model) {
+    	// set attribute = person id from session for showing features (c:if statement)
     	Task task = taskServices.findTask(id);
     	model.addAttribute("task", task);
     	return "display.jsp";

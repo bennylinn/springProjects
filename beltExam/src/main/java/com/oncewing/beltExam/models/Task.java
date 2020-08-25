@@ -30,7 +30,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Size(min = 3, max = 255)
+    @Size(min = 3, max = 255, message = "Must be at least 3") // can put message in validation
     private String name;
     @Size(min = 3, max = 255)
     private String priority;
@@ -40,8 +40,8 @@ public class Task {
     @JoinColumn(name="creator_id")
     private Person creator;
     
-    // One to one: assignee
-    @OneToOne(fetch=FetchType.LAZY)
+    // (many to one) One to one: assignee
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="assignee_id")
     private Person assignee;
     
@@ -62,12 +62,12 @@ public class Task {
     	this.assignee = assignee;
     }
     
-    public Task(String name, String priority, Long creator_id, Long assignee_id) {
-    	this.name = name;
-    	this.priority = priority;
-    	this.c_id = creator_id;
-    	this.a_id = assignee_id;
-    }
+//    public Task(String name, String priority, Long creator_id, Long assignee_id) {
+//    	this.name = name;
+//    	this.priority = priority;
+//    	this.c_id = creator_id;
+//    	this.a_id = assignee_id;
+//    }
     
     public Person getCreator() {
 		return creator;

@@ -35,6 +35,7 @@ public class Person {
     
 //     email and pass for login
     @Size(min = 3, max = 20)
+    // @Patter validation (regex pattern)
     private String email;
     public String getEmail() {
 		return email;
@@ -66,29 +67,29 @@ public class Person {
     private String password;
     
     @OneToMany(mappedBy="creator", fetch = FetchType.LAZY)
-    private List<Task> tasks;
+    private List<Task> created_tasks;
 //    
-    @OneToOne(mappedBy="assignee", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    private Task todo;
+    @OneToMany(mappedBy="assignee", fetch=FetchType.LAZY)
+    private List<Task> assigned_tasks;
 //    
     // This will not allow the createdAt column to be updated after creation
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
     public List<Task> getTasks() {
-		return tasks;
+		return created_tasks;
 	}
 
 	public void setTasks(List<Task> tasks) {
-		this.tasks = tasks;
+		this.created_tasks = tasks;
 	}
 
-	public Task getTodo() {
-		return todo;
+	public List<Task> getTodo() {
+		return assigned_tasks;
 	}
 
-	public void setTodo(Task todos) {
-		this.todo = todos;
+	public void setTodo(List<Task> assigned_tasks) {
+		this.assigned_tasks = assigned_tasks;
 	}
 	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;

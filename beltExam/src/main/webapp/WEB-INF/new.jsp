@@ -25,16 +25,16 @@
         </form:select>
     </p>
     <p>
-        <form:label path="c_id">Creator</form:label>
-        <form:select path="c_id">
+        <form:label path="creator">Creator</form:label>
+        <form:select path="creator">
         	<c:forEach items="${persons}" var="person">
         		<option value="${person.id}"><c:out value="${person.name}"/></option>
         	</c:forEach>
         </form:select>
     </p>  
     <p>
-    	<form:label path="a_id">Assignee</form:label>
-        <form:select path="a_id">
+    	<form:label path="assignee">Assignee</form:label>
+        <form:select path="assignee">
         	<c:forEach items="${persons}" var="person">
         		<option value="${person.id}"><c:out value="${person.name}"/></option>
         	</c:forEach>
