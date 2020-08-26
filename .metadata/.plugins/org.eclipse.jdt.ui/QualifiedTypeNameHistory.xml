@@ -18,4 +18,8 @@
     <fullyQualifiedTypeName name="javax.validation.Validator"/>
     <fullyQualifiedTypeName name="com.sun.tools.javac.resources.CompilerProperties.Errors"/>
     <fullyQualifiedTypeName name="javax.persistence.Transient"/>
+    <fullyQualifiedTypeName name="com.ib.controller.ApiController.IConnectionHandler"/>
+    <fullyQualifiedTypeName name="com.ib.controller.ApiConnection"/>
+    <fullyQualifiedTypeName name="com.ib.controller.ApiController"/>
+    <fullyQualifiedTypeName name="com.ib.client.Types"/>
 </qualifiedTypeNameHistroy>
