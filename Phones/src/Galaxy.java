@@ -2,8 +2,8 @@
 public class Galaxy extends Phones {
 
 	public Galaxy(String versionNumber, int batteryPercentage, String carrier, String ringTone) {
-        super(versionNumber, batteryPercentage, carrier, ringTone);
-    }
+        	super(versionNumber, batteryPercentage, carrier, ringTone);
+    	}
 
 	@Override
 	public String ring() {
